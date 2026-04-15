@@ -1,0 +1,59 @@
+CREATE TABLE Customer (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(20)
+);
+
+CREATE TABLE Destination (
+    destination_id INT PRIMARY KEY,
+    destination_name VARCHAR(100),
+    country VARCHAR(100)
+);
+
+CREATE TABLE Hotel (
+    hotel_id INT PRIMARY KEY,
+    hotel_name VARCHAR(100),
+    rating INT,
+    location VARCHAR(100)
+);
+
+CREATE TABLE TravelPackage (
+    package_id INT PRIMARY KEY,
+    package_name VARCHAR(100),
+    price DECIMAL(10,2),
+    duration INT,
+    destination_id INT,
+    hotel_id INT,
+    FOREIGN KEY (destination_id) REFERENCES Destination(destination_id),
+    FOREIGN KEY (hotel_id) REFERENCES Hotel(hotel_id)
+);
+
+CREATE TABLE Booking (
+    booking_id INT PRIMARY KEY,
+    customer_id INT,
+    package_id INT,
+    booking_date DATE,
+    status VARCHAR(50),
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+    FOREIGN KEY (package_id) REFERENCES TravelPackage(package_id)
+);
+
+CREATE TABLE Payment (
+    payment_id INT PRIMARY KEY,
+    booking_id INT,
+    amount DECIMAL(10,2),
+    payment_date DATE,
+    payment_method VARCHAR(50),
+    FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
+);
+
+CREATE TABLE Review (
+    review_id INT PRIMARY KEY,
+    customer_id INT,
+    package_id INT,
+    rating INT,
+    comment TEXT,
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+    FOREIGN KEY (package_id) REFERENCES TravelPackage(package_id)
+);
