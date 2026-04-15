@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Booking UI</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-box {
+            background: white;
+            padding: 20px;
+            margin: 30px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 30%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+
+        .card h3 {
+            margin: 0;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌍 Travel Booking System</h1>
+</header>
+
+<div class="search-box">
+    <h2>Find Your Trip</h2>
+    <input type="text" placeholder="Destination">
+    <input type="date">
+    <input type="date">
+    <br>
+    <button>Search</button>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Paris Tour</h3>
+        <p>5 days in Paris</p>
+        <p class="price">$1200</p>
+        <button>View Details</button>
+    </div>
+
+    <div class="card">
+        <h3>Rome Trip</h3>
+        <p>4 days in Rome</p>
+        <p class="price">$900</p>
+        <button>View Details</button>
+    </div>
+
+    <div class="card">
+        <h3>Barcelona Vacation</h3>
+        <p>6 days in Spain</p>
+        <p class="price">$1100</p>
+        <button>View Details</button>
+    </div>
+
+</div>
+
+</body>
+</html>
