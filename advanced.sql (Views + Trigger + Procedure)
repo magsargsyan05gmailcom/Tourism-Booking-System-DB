@@ -1,0 +1,36 @@
+CREATE VIEW ConfirmedBookings AS
+SELECT * FROM Booking
+WHERE status = 'Confirmed';
+
+CREATE INDEX idx_customer_email 
+ON Customer(email);
+
+DELIMITER $$
+
+CREATE TRIGGER trg_check_review_rating
+BEFORE INSERT ON Review
+FOR EACH ROW
+BEGIN
+ IF NEW.rating < 1 OR NEW.rating > 5 THEN
+ SIGNAL SQLSTATE '45000'
+ SET MESSAGE_TEXT = 'Rating must be between 1 and 5';
+ END IF;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE AddBooking (
+ IN p_booking_id INT,
+ IN p_customer_id INT,
+ IN p_package_id INT,
+ IN p_booking_date DATE,
+ IN p_status VARCHAR(50)
+)
+BEGIN
+ INSERT INTO Booking (booking_id, customer_id, package_id, booking_date, status)
+ VALUES (p_booking_id, p_customer_id, p_package_id, p_booking_date, p_status);
+END$$
+
+DELIMITER ;
