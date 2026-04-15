@@ -1,0 +1,33 @@
+INSERT INTO Customer (customer_id, name, email, phone) VALUES 
+(1, 'Anna Smith', 'anna1@mail.com', '100000001'),
+(2, 'John Brown', 'john2@mail.com', '100000002'),
+(3, 'Maria Garcia', 'maria3@mail.com', '100000003');
+
+INSERT INTO Destination VALUES 
+(1, 'Paris', 'France'),
+(2, 'Rome', 'Italy'),
+(3, 'Barcelona', 'Spain');
+
+INSERT INTO Hotel VALUES 
+(1, 'Luxury Hotel', 5, 'Paris'),
+(2, 'Comfort Stay', 4, 'Rome'),
+(3, 'Sea View Hotel', 5, 'Barcelona');
+
+INSERT INTO TravelPackage VALUES 
+(1, 'Paris Tour', 1200, 5, 1, 1),
+(2, 'Rome Trip', 900, 4, 2, 2),
+(3, 'Barcelona Vacation', 1100, 6, 3, 3);
+
+INSERT INTO Booking VALUES 
+(1, 1, 1, '2026-04-01', 'Confirmed'),
+(2, 2, 2, '2026-04-02', 'Pending'),
+(3, 3, 3, '2026-04-03', 'Confirmed');
+
+INSERT INTO Payment VALUES 
+(1, 1, 1200, '2026-04-01', 'Card'),
+(2, 3, 1100, '2026-04-03', 'Cash');
+
+INSERT INTO Review VALUES 
+(1, 1, 1, 5, 'Excellent trip'),
+(2, 2, 2, 4, 'Very good experience'),
+(3, 3, 3, 5, 'Amazing vacation');
