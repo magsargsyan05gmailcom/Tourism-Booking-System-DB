@@ -1,0 +1,12 @@
+SELECT * FROM Customer;
+
+SELECT name, email FROM Customer;
+
+SELECT * FROM Booking WHERE status = 'Confirmed';
+
+SELECT Customer.name, TravelPackage.package_name
+FROM Customer
+JOIN Booking ON Customer.customer_id = Booking.customer_id
+JOIN TravelPackage ON Booking.package_id = TravelPackage.package_id;
+
+SELECT * FROM TravelPackage WHERE price > 1000;
